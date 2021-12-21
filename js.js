@@ -1,41 +1,81 @@
 let num1 = "";
 let num2 = "";
 let op = "";
+let result = "";
 const disp = document.querySelector("#display")
 
 function press(num){
     num1 += num;
-    console.log(num1)
-    console.log(num2)
+
 
     disp.innerHTML = num1;
 }
 
-function setOP(op){
-    op = op;
+function setOP(ops){
+    op = ops;
     num2 = num1;
     num1="";
-    console.log(op)
 }
 
-console.log("This is the type of ops",typeof(op))
 
 function calculate () {
-    console.log("Calc")
-    if (op == "+") {
-        console.log("The +")
-        disp.innerHTML = parseInt(num1) + parseInt(num2);
+    if (result == ""){
+        
+        if (op == "+") {
+            result = parseInt(num1) + parseInt(num2);
+            disp.innerHTML = result;
+
+        }
+        else if (op === "-") {
+            result = parseInt(num2) - parseInt(num1);
+            disp.innerHTML = result;
+
+        }
+        else if (op === "*") {
+            result = parseInt(num1) * parseInt(num2);
+            disp.innerHTML = result;
+
+        }
+        else {
+            result = parseInt(num1) / parseInt(num2);
+            disp.innerHTML = result;
+
+        }    
+    } else {
+
+        if (op == "+") {
+            result = parseInt(result) + parseInt(num1);
+            disp.innerHTML = result;
+
+        }
+        else if (op === "-") {
+            result = parseInt(result) - parseInt(num1);
+            disp.innerHTML = result;
+
+        }
+        else if (op === "*") {
+            result = parseInt(result) * parseInt(num1);
+            disp.innerHTML = result;
+
+        }
+        else {
+            result = parseInt(result) / parseInt(num1);
+            disp.innerHTML = result;
+
+        }
 
     }
-    if (op === "-") {
-        disp.innerHTML = num1 - num2
-    }
-    if (op === "*") {
-        disp.innerHTML = num1 * num2
-    }
-    else {
-        disp.innerHTML = num2 / num1
-    }     
+
+
+}
+
+function clr() {
+    disp.innerHTML = 0;
+    num1 = "";
+    num2 = "";
+    op = "";
+    result=""
+
 }
 
 
